@@ -1,6 +1,11 @@
-(ns proxied.core)
+(ns proxied.core
+ (:gen-class)
+ (:require [clojure.string :as str]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defn f [x]
+ (print (str/split "1,2,3" #",")))
+
+(defn -main
+ ""
+ [& args]
+ (f 12))
