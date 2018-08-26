@@ -21,13 +21,17 @@
            (h1-to-h2 obj)
            obj)))))
 
+(defn -start
+  "start http proxy"  
+  [handler]
+  (.start
+    (.withFiltersSource
+      (.withPort
+        (DefaultHttpProxyServer/bootstrap)  
+        18080)
+      handler)))
+
 (defn -main
  ""
   [& args]
-  (.start
-   (.withFiltersSource
-    (.withPort
-     (DefaultHttpProxyServer/bootstrap)
-     18080)
-    response-handler)))
-
+  (-start response-handler))
