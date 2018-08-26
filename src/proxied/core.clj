@@ -24,7 +24,6 @@
 (defn -main
  ""
   [& args]
-  (println "START")
   (.start
    (.withFiltersSource
     (.withPort
